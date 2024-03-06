@@ -17,5 +17,4 @@ li.list_brand.brand div.brand-name a.brand-name')\
     def parse_laptops(self, response):
             yield {
             'name': response.css('a.plttl::text').get(),
-            'screensize': response.css('a.plttl::text').get().split()[11]
         }
