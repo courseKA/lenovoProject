@@ -16,5 +16,8 @@ li.list_brand.brand div.brand-name a.brand-name')\
 
     def parse_laptops(self, response):
             yield {
-            'name': response.css('a.plttl::text').get(),
+                'name': response.css('a.plttl::text').re(r'Lenovo.*'),
+                'price' : response.css('div.row-price').get().replace('<div class="row-price">\n<div class="price\
+ price-product">', '').replace('<span class="price2">', '').replace('<span>',\
+ '').replace('</span></span></div>\n</div>', '')
         }
